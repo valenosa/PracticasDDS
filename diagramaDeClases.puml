@@ -1,0 +1,12 @@
+@startuml
+
+class Inscripción{
+}
+
+class Materia{
+}
+
+class Alumno{
+}
+
+@enduml
