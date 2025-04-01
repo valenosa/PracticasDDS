@@ -1,20 +1,23 @@
 @startuml
 
 class Inscripción{
-+ aprobada(): Boolean /'Representa la aprobación de la inscripción en sí. La inscripción está aprobada si el alumno cumple las correlatividades'/
-- materiasAprobadasNecesarias: List<Materia> /'Por el momento el sistema está limitado a que las correlativas sean solo por aprobación (es decir, no hay dos tipos de correlativas (aprobación y cursada)).'/
++ aprobada(): Boolean /'Representa la aprobación de la inscripción en sí. La inscripción está aprobada si el Alumno puedeInscribirse'/
+- materiasPorCursar: List<Materia>
 - alumno: Alumno
 }
 
 class Alumno{
-+ cumpleCorrelatividades(materiasAprobadasNecesarias: List<Materia>): Boolean /'¿Cómo sé si cumple las correlatividades para anotarse a esas materias? Necesito saber si el alumno aprobó la materia.'/
++ puedeInscribirse(materiasPorCursar: List<Materia>): Boolean /'El Alumno puedeInscribirse si puedeCursar cada Materia'/
 - materiasAprobadas: List<Materia>
-- nombre: String
+'- nombre: String
++ aprobo(materia: Materia): Boolean /'El Alumno aprobó la materia si forma parte de sus materiasAprobadas'/
 }
 
 class Materia{
-+ tieneAprobada(): Boolean
-- nombre: String
+- materiasNecesarias: List<Materia>
++ puedeCursar(alumno: Alumno): Boolean /'El Alumno puedeCursar la Materia si cumpleLasCorrelatividades()'/
+- cumpleLasCorrelatividades(alumno: Alumno): Boolean /'El Alumno cumple cumpleLasCorrelatividades si aprobo las materiasNecesarias'/
+'- nombre: String
 }
 
 @enduml
