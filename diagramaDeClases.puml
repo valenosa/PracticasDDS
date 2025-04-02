@@ -17,7 +17,15 @@ class Materia{
 - materiasNecesarias: Set<Materia>
 + puedeCursar(alumno: Alumno): Boolean /'El Alumno puedeCursar la Materia si cumpleLasCorrelatividades()'/
 - cumpleLasCorrelatividades(alumno: Alumno): Boolean /'El Alumno cumple cumpleLasCorrelatividades si aprobo las materiasNecesarias'/
-'- nombre: String
+- nombre: String
 }
 
+'Hay agregación porque las aterias forman parte de la isncripción
+Inscripción o-- Materia
+Inscripción o-- Alumno
+
+Alumno o-- Materia
+
+'No hay agregación porque las amterias no forman parte de la materia, si no que se tiene referencia a ellas solo para poder analizar las correlatividades
+Materia <-- Materia
 @enduml
