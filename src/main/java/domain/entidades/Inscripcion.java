@@ -1,14 +1,14 @@
 package domain.entidades;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Inscripcion {
 private Alumno alumno;
-private List<Materia> materiasPorCursar;
+private Set<Materia> materiasPorCursar;
 public Inscripcion(Alumno alumno) {
     this.alumno = alumno;
-    this.materiasPorCursar = new ArrayList<Materia>();
+    this.materiasPorCursar = new HashSet<Materia>();
     }
 public boolean aprobada(){
     return true;

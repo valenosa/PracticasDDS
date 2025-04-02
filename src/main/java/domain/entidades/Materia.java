@@ -1,13 +1,13 @@
 package domain.entidades;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Materia {
-    private List<Materia> materiasNecesarias;
+    private Set<Materia> materiasNecesarias;
 
     public Materia() {
-        materiasNecesarias = new ArrayList<Materia>();
+        materiasNecesarias = new HashSet<Materia>();
     }
 
     private boolean cumpleLasCorrelatividades(Alumno alumno){

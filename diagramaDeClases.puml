@@ -2,19 +2,19 @@
 
 class Inscripción{
 + aprobada(): Boolean /'Representa la aprobación de la inscripción en sí. La inscripción está aprobada si el Alumno puedeInscribirse'/
-- materiasPorCursar: List<Materia>
+- materiasPorCursar: Set<Materia>
 - alumno: Alumno
 }
 
 class Alumno{
-+ puedeInscribirse(materiasPorCursar: List<Materia>): Boolean /'El Alumno puedeInscribirse si puedeCursar cada Materia'/
-- materiasAprobadas: List<Materia>
++ puedeInscribirse(materiasPorCursar: Set<Materia>): Boolean /'El Alumno puedeInscribirse si puedeCursar cada Materia'/
+- materiasAprobadas: Set<Materia>
 '- nombre: String
 + aprobo(materia: Materia): Boolean /'El Alumno aprobó la materia si forma parte de sus materiasAprobadas'/
 }
 
 class Materia{
-- materiasNecesarias: List<Materia>
+- materiasNecesarias: Set<Materia>
 + puedeCursar(alumno: Alumno): Boolean /'El Alumno puedeCursar la Materia si cumpleLasCorrelatividades()'/
 - cumpleLasCorrelatividades(alumno: Alumno): Boolean /'El Alumno cumple cumpleLasCorrelatividades si aprobo las materiasNecesarias'/
 '- nombre: String
