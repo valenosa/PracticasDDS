@@ -6,8 +6,9 @@ import java.util.Set;
 public class Alumno {
     private Set<Materia> materiasAprobadas;
 
-    public Alumno() {
+    public Alumno(Set<Materia> materias) {
         materiasAprobadas = new HashSet<Materia>();
+        this.materiasAprobadas.addAll(materias);
     }
 
     public boolean puedeInscribirse(Set<Materia> materiasPorCursar) {
