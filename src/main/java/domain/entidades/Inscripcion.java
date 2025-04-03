@@ -14,11 +14,12 @@ public class Inscripcion {
     }
 
     public void agregarMaterias(Materia ... materias){
+        //TODO
         Collections.addAll(this.materiasPorCursar, materias);
     }
 
     public boolean aprobada(){
         //TODO
-        return false;
+        return this.alumno.puedeInscribirse(this.materiasPorCursar);
     }
 }
