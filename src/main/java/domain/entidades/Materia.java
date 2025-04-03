@@ -6,11 +6,12 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
 public class Materia {
-    @Getter private Set<Materia> materiasCorrelativas;
+    private final Set<Materia> materiasCorrelativas;
 
     public Materia() {
-        this.materiasCorrelativas = new HashSet<Materia>();
+        this.materiasCorrelativas = new HashSet<>();
     }
 
     public void agregarCorrelativas(Materia ... materias){
@@ -20,7 +21,7 @@ public class Materia {
     private boolean cumpleLasCorrelatividades(Alumno alumno){
         //TODO
     //  return materiasCorrelativas.stream().allMatch(materia -> alumno.aprobo(materia));
-        return materiasCorrelativas.stream().allMatch(materia -> alumno.aprobo(materia));
+        return materiasCorrelativas.stream().allMatch(alumno::aprobo);
     }
 
     public boolean puedeCursar(Alumno alumno){
