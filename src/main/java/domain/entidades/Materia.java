@@ -1,14 +1,18 @@
 package domain.entidades;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Materia {
-    private Set<Materia> materiasNecesarias;
+    private Set<Materia> materiasCorrelativas;
 
-    public Materia(Set<Materia> materias) {
-        materiasNecesarias = new HashSet<Materia>();
-        this.materiasNecesarias.addAll(materias);
+    public Materia() {
+        this.materiasCorrelativas = new HashSet<Materia>();
+    }
+
+    public void agregarCorrelativas(Materia ... materias){
+        Collections.addAll(this.materiasCorrelativas, materias);
     }
 
     private boolean cumpleLasCorrelatividades(Alumno alumno){
