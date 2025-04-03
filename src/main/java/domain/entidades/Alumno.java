@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Alumno {
-    private Set<Materia> materiasAprobadas;
+    @Getter Set<Materia> materiasAprobadas;
 
     public Alumno() {
         this.materiasAprobadas = new HashSet<Materia>();
