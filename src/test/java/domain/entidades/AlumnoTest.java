@@ -9,12 +9,6 @@ import java.util.Set;
 class AlumnoTest {
 
     @Test
-    @DisplayName("Se puede instanciar un alumno")
-    public void InstanciarAlumno(){
-        Alumno materia = new Alumno();
-    }
-
-    @Test
     @DisplayName("Se agregan como aprobadas sypn, pdep, ingles1, ayed y ads al alumno")
     public void AgregarAprobadas(){
         Materia sypn = new Materia();
