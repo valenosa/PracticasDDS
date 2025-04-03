@@ -22,6 +22,6 @@ public class Materia {
 
     public boolean puedeCursar(Alumno alumno){
         //TODO
-        return false;
+        return this.cumpleLasCorrelatividades(alumno);
     }
 }
