@@ -18,7 +18,7 @@ class Alumno{
 class Materia{
 - materiasNecesarias: Set<Materia>
 + puedeCursar(alumno: Alumno): Boolean /'El Alumno puedeCursar la Materia si cumpleLasCorrelatividades()'/
-- cumpleLasCorrelatividades(alumno: Alumno): Boolean /'El Alumno cumple cumpleLasCorrelatividades si aprobo las materiasNecesarias'/
+- cumpleLasCorrelatividades(alumno: Alumno): Boolean /'El Alumno cumpleLasCorrelatividades si aprobo las materiasNecesarias'/
 - nombre: String
 + agregarCorrelativas(materias: Materia ...)
 }
