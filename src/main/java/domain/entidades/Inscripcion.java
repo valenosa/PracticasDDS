@@ -12,6 +12,7 @@ public Inscripcion(Alumno alumno, Set<Materia> materias) {
     this.materiasPorCursar.addAll(materias);
     }
 public boolean aprobada(){
-    return true;
+    //TODO
+    return false;
 }
 }

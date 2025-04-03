@@ -12,10 +12,12 @@ public class Alumno {
     }
 
     public boolean puedeInscribirse(Set<Materia> materiasPorCursar) {
-        return true;
+        //TODO
+        return false;
     }
 
     public boolean aprobo(Materia materia){
-        return true;
+        //TODO
+        return false;
     }
 }

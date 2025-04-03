@@ -12,10 +12,12 @@ public class Materia {
     }
 
     private boolean cumpleLasCorrelatividades(Alumno alumno){
-        return true;
+        //TODO
+        return false;
     }
 
     public boolean puedeCursar(Alumno alumno){
-        return true;
+        //TODO
+        return false;
     }
 }
