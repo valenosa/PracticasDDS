@@ -17,7 +17,8 @@ public class Materia {
 
     private boolean cumpleLasCorrelatividades(Alumno alumno){
         //TODO
-        return false;
+    //  return materiasCorrelativas.stream().allMatch(materia -> alumno.aprobo(materia));
+        return materiasCorrelativas.stream().allMatch(alumno::aprobo);
     }
 
     public boolean puedeCursar(Alumno alumno){
