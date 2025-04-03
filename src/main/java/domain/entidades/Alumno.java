@@ -22,6 +22,6 @@ public class Alumno {
 
     public boolean aprobo(Materia materia){
         //TODO
-        return false;
+        return materiasAprobadas.contains(materia);
     }
 }
