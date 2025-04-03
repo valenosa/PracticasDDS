@@ -6,11 +6,12 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
 public class Alumno {
-    @Getter Set<Materia> materiasAprobadas;
+    Set<Materia> materiasAprobadas;
 
     public Alumno() {
-        this.materiasAprobadas = new HashSet<Materia>();
+        this.materiasAprobadas = new HashSet<>();
     }
 
     public void agregarAprobadas(Materia ... materias){
