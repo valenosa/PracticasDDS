@@ -28,7 +28,7 @@ class AlumnoTest {
 
     @Test
     @DisplayName("Alumno aprobó sypn")
-    public void AproboMateria(){
+    public void materiaAprobada(){
         Materia sypn = new Materia();
         Materia pdep = new Materia();
         Materia ingles1 = new Materia();
