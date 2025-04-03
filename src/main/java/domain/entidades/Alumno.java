@@ -17,7 +17,7 @@ public class Alumno {
 
     public boolean puedeInscribirse(Set<Materia> materiasPorCursar) {
         //TODO
-        return false;
+        return materiasPorCursar.stream().allMatch(materia -> materia.puedeCursar(this));
     }
 
     public boolean aprobo(Materia materia){
