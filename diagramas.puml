@@ -1,0 +1,66 @@
+@startuml
+
+class Inscripción{
++ aprobada(): Boolean /'Representa la aprobación de la inscripción en sí. La inscripción está aprobada si el Alumno puedeInscribirse'/
+- materiasPorCursar: Set<Materia>
+- alumno: Alumno
++ agregarMaterias(materias: Materia ...)
+}
+
+class Alumno{
++ puedeInscribirse(materiasPorCursar: Set<Materia>): Boolean /'El Alumno puedeInscribirse si puedeCursar cada Materia'/
+- materiasAprobadas: Set<Materia>
+'- nombre: String
++ aprobo(materia: Materia): Boolean /'El Alumno aprobó la materia si forma parte de sus materiasAprobadas'/
++ agregarAprobadas(materias: Materia ...)
+}
+
+class Materia{
+- materiasNecesarias: Set<Materia>
++ puedeCursar(alumno: Alumno): Boolean /'El Alumno puedeCursar la Materia si cumpleLasCorrelatividades()'/
+- cumpleLasCorrelatividades(alumno: Alumno): Boolean /'El Alumno cumpleLasCorrelatividades si aprobo las materiasNecesarias'/
+- nombre: String
++ agregarCorrelativas(materias: Materia ...)
+}
+
+'Hay agregación porque las aterias forman parte de la isncripción
+Inscripción o-- Materia
+Inscripción o-- Alumno
+
+Alumno o-- Materia
+
+'No hay agregación porque las amterias no forman parte de la materia, si no que se tiene referencia a ellas solo para poder analizar las correlatividades
+Materia <-- Materia
+@enduml
+
+@startuml
+actor Usuario
+participant inscripción
+participant alumno
+participant materia
+
+Usuario -> inscripción ++ :aprobada()
+
+inscripción -> alumno ++ : puedeInscribirse(materiasPorCursar) /'¿tengo que usar los nombres de los métodos o me puedo abstraer de eso?'/
+loop forAll materiaPorCursar: materia.puedeCursar(alumno) /'¿Alguna recomendación en cuanto a cómo etiquetar estos loops?'/
+    alumno -> materia ++ : puedeCursar(alumno) /'¿Cómo expreso que para toda materia por cursar el alumno chequea si puede cursar la materia? hice un loop pero no se si es lo correcto'/
+    materia -> materia : cumpleLasCorrelatividades(alumno) /'Debería hacer otro alt para mostrar la diferencia entre si las cumple o no, o poner toda esta funcionalidad dentro de otro diagrama de secuencia como dice este link: https://stackoverflow.com/questions/70527413/is-nested-alt-in-sequence-diagram-a-good-practice'/
+    loop forAll materiaNecesaria: alumno.aprobó(materia)
+        materia --> alumno :aprobó(materia)
+        alumno -> alumno : materiasAprobadas.contains(materia) /'¿Es necesario mostrar este tipo de detalles? o es preferible obviarlo y dejarlo solamente como que se le preguntó al alumno si aprobó y este respondió?'/
+        alumno -> materia : alumno aprobó
+    end
+end
+alt cumpleLasCorrelatividades(alumno) == true
+    materia --> materia : el alumno cumple con las correlatividades /'Tiene sentido que el objeto se responda a sí mismo la pregunta que se hizo en un principio?'/
+    materia --> alumno -- : alumno puede cursar /'¿La respuesta a un loop debería estar dentro de la cajita del loop o fuera?'/
+    alumno --> inscripción -- : el alumno puede inscribirse
+end
+inscripción --> Usuario -- : Rta aprobada(): boolean
+
+
+
+
+
+/'¿Qué tan específico debería ser con el diagrama? Es preferible tener todos los for e if diagramados y que se vea toda la lógica del programa, o que se vea una abstracción a más alto nivel que muestre las funcionalidades principales del programa (y en caso de ser necesario hacer otros diagramas de secuencia para mostrar secuencias más específicas (como for e if muy nesteados))?'/
+@enduml
