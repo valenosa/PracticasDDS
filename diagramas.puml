@@ -51,11 +51,9 @@ loop forAll materiaPorCursar: materia.puedeCursar(alumno) /'¿Alguna recomendaci
         alumno -> materia : alumno aprobó
     end
 end
-alt cumpleLasCorrelatividades(alumno) == true
-    materia --> materia : el alumno cumple con las correlatividades /'Tiene sentido que el objeto se responda a sí mismo la pregunta que se hizo en un principio?'/
-    materia --> alumno -- : alumno puede cursar /'¿La respuesta a un loop debería estar dentro de la cajita del loop o fuera?'/
-    alumno --> inscripción -- : el alumno puede inscribirse
-end
+materia --> materia : Rta cumpleLasCorrelatividades(alumno): boolean /'Tiene sentido que el objeto se responda a sí mismo la pregunta que se hizo en un principio?'/
+materia --> alumno -- : Rta puedeCursar(alumno): boolean /'¿La respuesta a un loop debería estar dentro de la cajita del loop o fuera?'/
+alumno --> inscripción -- : Rta puedeInscribirse(materiasPorCursar): boolean /'Debería dejarlo como estaba antes (más expresivo y declarativo) o poner esto? Lo cambié porque siento que así ya no es necesario poner el alt dado que es obvio que devuelve un bool y la respuesta se basa en eso'/
 inscripción --> Usuario -- : Rta aprobada(): boolean
 
 
