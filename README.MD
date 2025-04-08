@@ -15,7 +15,7 @@ El flujo de mensajes para saber si una inscripción está aprobada es el siguien
 
 > inscripción.aprobada() ->
 >
->alumno.puedeInscribirse(materiaPorCursar) -> 
+>alumno.puedeInscribirse(materiasPorCursar) -> 
 >
 >∀ materiaPorCursar: materia.puedeCursar(alumno) -> 
 >
